@@ -5,6 +5,7 @@ import { IRelease } from '../../models';
 import { ArchiveOutlined } from '../Icons';
 import { LoadShimmer } from '../Load-Shimmer';
 import { useStylesRelease } from './helpers';
+import { GetCurrentLocale } from '../../utils';
 
 interface FileNameProps extends RouteComponentProps {
     release: IRelease;
@@ -13,6 +14,16 @@ interface FileNameProps extends RouteComponentProps {
 
 const FileName: React.SFC<FileNameProps> = ({ release, showLoader }) => {
     const classes = useStylesRelease();
+
+    const releaseDate = new Date(Date.parse(release.date)).toLocaleDateString(GetCurrentLocale(), {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour:"numeric",
+        minute: "numeric",
+        second: "numeric"
+    });
 
     return release ? (<>
 
@@ -23,7 +34,7 @@ const FileName: React.SFC<FileNameProps> = ({ release, showLoader }) => {
             !showLoader && (<>
                 <ListItemText
                     primary={release.file_name}
-                    secondary={release.date}
+                    secondary={releaseDate.charAt(0).toUpperCase() + releaseDate.slice(1)}
                 />
             </>)
         }
