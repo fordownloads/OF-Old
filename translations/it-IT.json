@@ -1,0 +1,55 @@
+{
+    "languageInfo": {
+        "name": "Italian",
+        "emoji": "🇮🇹"
+    },
+    "mainPage": {
+        "donation": "Donazioni",
+        "hintText": "Seleziona il dispositivo dall'elenco o usa la ricerca",
+        "notFound": "Questa è la fine. Riportami a casa!"
+    },
+    "deviceList": {
+        "searchDevice": "Cerca dispositivo",
+        "notFound": "Dispositivo non trovato!"
+    },
+    "device": {
+        "info": "(Informazioni dispositivo)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Mantenuto",
+            "maintainedWithoutDevice": "Mantenuto senza avere il dispositivo tra le mani",
+            "notMaintained": "Non mantenuto!"
+        },
+        "by": {
+            "current": "Manutentore {maintainer}",
+            "previous": "Manutentore precedente: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Versioni Beta",
+            "stable": "Versioni stabili"
+        },
+        "notFound": "Non ci sono ancora versioni per questo dispositivo!",
+        "fileSize": "Dimensione file",
+        "download": "Downloads",
+        "changeLogs": "Log delle modifiche",
+        "buildNotes": "Note della build",
+        "bugs": "Bug",
+        "allBuild": "Mostra tutte le build"
+    },
+    "error": {
+        "server": "Impossibile connettersi con OrangeFox! Riprova più tardi."
+    },
+    "modal": {
+        "fetchLink": "Recupero dei collegamenti",
+        "directLink": "Link Diretto",
+        "mirrorLink": "Link Mirror",
+        "close": "Chiudi"
+    },
+    "footer": {
+        "poweredBy": "Fornito da {hostWebsite}",
+        "openSource": "Progetto Open-Source"
+    }
+}

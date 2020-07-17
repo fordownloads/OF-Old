@@ -1,0 +1,57 @@
+{
+    "languageInfo": {
+        "name": "English",
+        "emoji": "\uD83C\uDDFA\uD83C\uDDF8"
+    },
+    "mainPage": {
+        "donation": "Donations",
+        "hintText": "Select device from the list or use search",
+        "notFound": "This is the end. Take me back Home!"
+    },
+    "deviceList": {
+        "searchDevice": "Search Device",
+        "notFound": "Device not found!"
+    },
+    "device": {
+        "info": "(Device Info)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Maintained",
+            "maintainedWithoutDevice": "Maintained without having device in hands",
+            "notMaintained": "Not Maintained!"
+        },
+        "by": {
+            "current": "Maintainer: {maintainer}",
+            "previous": "Previous Maintainer: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Beta Releases",
+            "stable": "Stable Releases"
+        },
+        "copy": "Link copied to clipboard!",
+        "notFound": "There are no releases for this device yet!",
+        "fileSize": "File Size",
+        "download": "Downloads",
+        "changeLogs": "Change Logs",
+        "buildNotes": "Build Notes",
+        "bugs": "Bugs",
+        "allBuild": "Show All Builds"
+    },
+    "error": {
+        "server": "Couldn't connect with OrangeFox! Try again later."
+    },
+    "modal": {
+        "fetchLink": "Fetching Links",
+        "directLink": "Direct Link",
+        "mirrorLink": "Mirror Link",
+        "close": "Close",
+        "info": "Info"
+    },
+    "footer": {
+        "poweredBy": "Powered By {hostWebsite}",
+        "openSource": "Open-Source Project"
+    }
+}

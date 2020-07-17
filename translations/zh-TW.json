@@ -1,0 +1,55 @@
+{
+    "languageInfo": {
+        "name": "Chinese Traditional",
+        "emoji": "🇹🇼"
+    },
+    "mainPage": {
+        "donation": "支持我們",
+        "hintText": "從列表中選擇您的裝置或者搜尋您的裝置",
+        "notFound": "到底啦！回到首頁！"
+    },
+    "deviceList": {
+        "searchDevice": "搜尋裝置",
+        "notFound": "未找到裝置！"
+    },
+    "device": {
+        "info": "(裝置資訊)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "維護中",
+            "maintainedWithoutDevice": "維護者未擁有此裝置",
+            "notMaintained": "未維護！"
+        },
+        "by": {
+            "current": "維護者： {maintainer}",
+            "previous": "先前的維護者： {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "測試版",
+            "stable": "正式版"
+        },
+        "notFound": "未為此裝置構建版本",
+        "fileSize": "檔案大小",
+        "download": "下載",
+        "changeLogs": "更新日誌",
+        "buildNotes": "注意事項",
+        "bugs": "Bugs",
+        "allBuild": "顯示所有版本"
+    },
+    "error": {
+        "server": "無法連接到到 OrangeFox ！請稍候再嘗試。"
+    },
+    "modal": {
+        "fetchLink": "正在取得連結",
+        "directLink": "直接下載",
+        "mirrorLink": "鏡像連結",
+        "close": "關閉"
+    },
+    "footer": {
+        "poweredBy": "由 {hostWebsite} 提供支援",
+        "openSource": "開放原始碼"
+    }
+}

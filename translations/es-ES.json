@@ -1,0 +1,55 @@
+{
+    "languageInfo": {
+        "name": "Spanish",
+        "emoji": "🇪🇸"
+    },
+    "mainPage": {
+        "donation": "Donaciones",
+        "hintText": "Seleccionar dispositivo de la lista o usar la búsqueda",
+        "notFound": "Este es el final. ¡Llévame de vuelta al Inicio!"
+    },
+    "deviceList": {
+        "searchDevice": "Buscar Dispositivo",
+        "notFound": "¡Dispositivo no encontrado!"
+    },
+    "device": {
+        "info": "(Información del Dispositivo)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Mantenido",
+            "maintainedWithoutDevice": "Mantenido sin tener el dispositivo en las manos",
+            "notMaintained": "¡No mantenido!"
+        },
+        "by": {
+            "current": "Mantenedor: {maintainer}",
+            "previous": "Mantenedor Anterior: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Lanzamientos Beta",
+            "stable": "Lanzamientos Estables"
+        },
+        "notFound": "¡Todavía no hay lanzamientos para este dispositivo!",
+        "fileSize": "Tamaño del Archivo",
+        "download": "Descargas",
+        "changeLogs": "Registro de Cambios",
+        "buildNotes": "Notas de Compilación",
+        "bugs": "Errores",
+        "allBuild": "Mostrar todas las compilaciones"
+    },
+    "error": {
+        "server": "¡No se pudo conectar con OrangeFox! Inténtalo de nuevo más tarde."
+    },
+    "modal": {
+        "fetchLink": "Obteniendo Enlaces",
+        "directLink": "Enlace Directo",
+        "mirrorLink": "Enlace Espejado",
+        "close": "Cerrar"
+    },
+    "footer": {
+        "poweredBy": "Potenciado por {hostWebsite}",
+        "openSource": "Proyecto de Código Abierto"
+    }
+}

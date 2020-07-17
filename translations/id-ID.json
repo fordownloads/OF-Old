@@ -1,0 +1,55 @@
+{
+    "languageInfo": {
+        "name": "Indonesia",
+        "emoji": "🇮🇩"
+    },
+    "mainPage": {
+        "donation": "Donasi",
+        "hintText": "Pilih perangkat dari daftar atau gunakan pencarian",
+        "notFound": "Ini sudah di akhir. Kembali ke Menu Utama!"
+    },
+    "deviceList": {
+        "searchDevice": "Cari Perangkat",
+        "notFound": "Perangkat tidak ditemukan!"
+    },
+    "device": {
+        "info": "(Info Perangkat)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Dikerjakan",
+            "maintainedWithoutDevice": "Dikerjakan tanpa perangkat ditangan",
+            "notMaintained": "Tidak Terurus!"
+        },
+        "by": {
+            "current": "Dikerjakan: {maintainer}",
+            "previous": "Dikerjakan Sebelumnya Oleh: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Rilis Beta",
+            "stable": "Rilis Stabil"
+        },
+        "notFound": "Belum ada rilis untuk perangkat ini!",
+        "fileSize": "Ukuran File",
+        "download": "Unduh",
+        "changeLogs": "Catatan Perubahan",
+        "buildNotes": "Catatan Rilis",
+        "bugs": "Bug",
+        "allBuild": "Tampilkan Semua Build"
+    },
+    "error": {
+        "server": "Tidak dapat terhubung dengan OrangeFox! Coba beberapa saat lagi."
+    },
+    "modal": {
+        "fetchLink": "Mengambil Tautan",
+        "directLink": "Tautan Langsung",
+        "mirrorLink": "Tautan Lain",
+        "close": "Tutup"
+    },
+    "footer": {
+        "poweredBy": "Didukung Oleh {hostWebsite}",
+        "openSource": "Proyek Sumber terbuka"
+    }
+}

@@ -1,0 +1,55 @@
+{
+    "languageInfo": {
+        "name": "Deutsch",
+        "emoji": "🇩🇪"
+    },
+    "mainPage": {
+        "donation": "Spenden",
+        "hintText": "Wählen Sie ein Gerät aus der Liste oder verwenden Sie die Suche",
+        "notFound": "Das wars. Bring mich nach Hause!"
+    },
+    "deviceList": {
+        "searchDevice": "Gerät suchen",
+        "notFound": "Gerät nicht gefunden!"
+    },
+    "device": {
+        "info": "(Geräte-Info)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Betreut",
+            "maintainedWithoutDevice": "Betreut ohne das Gerät zu besitzen",
+            "notMaintained": "Nicht betreut!"
+        },
+        "by": {
+            "current": "Betreuer: {maintainer}",
+            "previous": "Vorheriger Betreuer: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Beta-Versionen",
+            "stable": "Stabile-Versionen"
+        },
+        "notFound": "Es wurden noch keine Versionen für dieses Gerät veröffentlicht!",
+        "fileSize": "Gesamtgröße",
+        "download": "Downloads",
+        "changeLogs": "Änderungsprotokolle",
+        "buildNotes": "Anmerkungen zu diesem Build",
+        "bugs": "Bugs",
+        "allBuild": "Alle Builds anzeigen"
+    },
+    "error": {
+        "server": "Verbindung mit OrangeFox herstellen nicht möglich! Später erneut versuchen."
+    },
+    "modal": {
+        "fetchLink": "Links werden abgerufen",
+        "directLink": "Direkter Link",
+        "mirrorLink": "Alternativer Link",
+        "close": "Schließen"
+    },
+    "footer": {
+        "poweredBy": "Unterstützt von {hostWebsite}",
+        "openSource": "Open-Source Projekt"
+    }
+}

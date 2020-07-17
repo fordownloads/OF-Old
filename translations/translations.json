@@ -1,0 +1,87 @@
+[
+  {
+    "code": "zh-CN",
+    "name": "Chinese Simplified",
+    "emoji": "🇨🇳"
+  },
+  {
+    "code": "cs-CZ",
+    "name": "Czech",
+    "emoji": "🇨🇿"
+  },
+  {
+    "code": "de-DE",
+    "name": "Deutsch",
+    "emoji": "🇩🇪"
+  },
+  {
+    "code": "en",
+    "name": "English",
+    "emoji": "🇺🇸"
+  },
+  {
+    "code": "el-GR",
+    "name": "Greek",
+    "emoji": "🇬🇷"
+  },
+  {
+    "code": "hi-IN",
+    "name": "Hindi",
+    "emoji": "🇮🇳"
+  },
+  {
+    "code": "it-IT",
+    "name": "Italian",
+    "emoji": "🇮🇹"
+  },
+  {
+    "code": "ja-JP",
+    "name": "Japanese",
+    "emoji": "🇯🇵"
+  },
+  {
+    "code": "ml-IN",
+    "name": "Malayalam",
+    "emoji": "🇮🇳"
+  },
+  {
+    "code": "pt-BR",
+    "name": "Portuguese",
+    "emoji": "🇵🇹"
+  },
+  {
+    "code": "pa-IN",
+    "name": "Punjabi",
+    "emoji": "🇮🇳"
+  },
+  {
+    "code": "ro-RO",
+    "name": "Romanian",
+    "emoji": "ro"
+  },
+  {
+    "code": "ru-RU",
+    "name": "Russian",
+    "emoji": "🇷🇺"
+  },
+  {
+    "code": "sr-Cyrl",
+    "name": "Serbian (Cyrillic)",
+    "emoji": "🇷🇸"
+  },
+  {
+    "code": "es-ES",
+    "name": "Spanish",
+    "emoji": "🇪🇸"
+  },
+  {
+    "code": "tr-TR",
+    "name": "Turkish",
+    "emoji": "🇹🇷"
+  },
+  {
+    "code": "uk-UA",
+    "name": "Ukrainian",
+    "emoji": "🇺🇦"
+  }
+]

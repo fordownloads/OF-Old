@@ -1,0 +1,55 @@
+{
+    "languageInfo": {
+        "name": "Czech",
+        "emoji": "🇨🇿"
+    },
+    "mainPage": {
+        "donation": "Příspěvky",
+        "hintText": "Vyberte zařízení ze seznamu nebo použijte vyhledávání",
+        "notFound": "Tohle je konec. Vrať mě domů!"
+    },
+    "deviceList": {
+        "searchDevice": "Vyhledat zařízení",
+        "notFound": "Zařízení nenalezeno!"
+    },
+    "device": {
+        "info": "(Informace o zařízení)"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "Udržováno",
+            "maintainedWithoutDevice": "Udržováno, ale bez zařízení",
+            "notMaintained": "Není udržováno!"
+        },
+        "by": {
+            "current": "Správce: {maintainer}",
+            "previous": "Předchozí správce: {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "Beta vydání",
+            "stable": "Stabilní vydání"
+        },
+        "notFound": "Pro toto zařízení zatím nejsou k dispozici žádné vydání!",
+        "fileSize": "Velikost souboru",
+        "download": "Stáhnout",
+        "changeLogs": "Změnit log",
+        "buildNotes": "Poznámky k sestavení",
+        "bugs": "Chyby",
+        "allBuild": "Zobrazit všechny vydání"
+    },
+    "error": {
+        "server": "Nelze se připojit k OrangeFox! Zkuste to znovu později."
+    },
+    "modal": {
+        "fetchLink": "Načítání odkazů",
+        "directLink": "Přímý odkaz",
+        "mirrorLink": "Mirror odkaz",
+        "close": "Zavřít"
+    },
+    "footer": {
+        "poweredBy": "Vytvořeno uživatelem {hostWebsite}",
+        "openSource": "Open-Source projekt"
+    }
+}

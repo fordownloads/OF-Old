@@ -1,0 +1,55 @@
+{
+    "languageInfo": {
+        "name": "Chinese Simplified",
+        "emoji": "🇨🇳"
+    },
+    "mainPage": {
+        "donation": "支持我们",
+        "hintText": "从列表中选择您的设备或者搜索您的设备",
+        "notFound": "到底啦！回到首页！"
+    },
+    "deviceList": {
+        "searchDevice": "搜索设备",
+        "notFound": "未找到设备！"
+    },
+    "device": {
+        "info": "（设备信息）"
+    },
+    "maintain": {
+        "status": {
+            "maintained": "维护中",
+            "maintainedWithoutDevice": "维护者未拥有此设备",
+            "notMaintained": "未维护！"
+        },
+        "by": {
+            "current": "维护者： {maintainer}",
+            "previous": "先前的维护者： {maintainer}"
+        }
+    },
+    "release": {
+        "type": {
+            "beta": "测试版",
+            "stable": "正式版"
+        },
+        "notFound": "未为此设备构建版本",
+        "fileSize": "文件大小",
+        "download": "下载",
+        "changeLogs": "更新日志",
+        "buildNotes": "注意事项",
+        "bugs": "Bugs",
+        "allBuild": "显示所有版本"
+    },
+    "error": {
+        "server": "无法连接到 OrangeFox ！请稍候再试。"
+    },
+    "modal": {
+        "fetchLink": "正在获取链接",
+        "directLink": "直接下载",
+        "mirrorLink": "镜像链接",
+        "close": "关闭"
+    },
+    "footer": {
+        "poweredBy": "由 {hostWebsite} 提供支持",
+        "openSource": "源代码"
+    }
+}
