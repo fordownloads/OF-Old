@@ -3,13 +3,9 @@ import "firebase/messaging";
 
 const initializedFirebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyAwQ-n44Z0WaaZfBqfxhhzNEuNiihnOvG8",
-    authDomain: "orangefox-push.firebaseapp.com",
-    databaseURL: "https://orangefox-push.firebaseio.com",
     projectId: "orangefox-push",
-    storageBucket: "orangefox-push.appspot.com",
     messagingSenderId: "62815877980",
-    appId: "1:62815877980:web:7335752aa695d1489c9f99",
-    measurementId: "G-TQMD0X716C"
+    appId: "1:62815877980:web:7335752aa695d1489c9f99"
 });
 
 const messaging = initializedFirebaseApp.messaging();

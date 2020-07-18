@@ -7,21 +7,18 @@ import { Device, Build, Home, NotFound } from './pages';
 import { messaging } from "./init-fcm";
 import { compose, lifecycle, withHandlers, withState } from "recompose";
 import './styles/style.scss';
-// @ts-ignore
-const renderNotification = (notification, i) => <li key={i}>{notification}</li>;
-// @ts-ignore
+
 const registerPushListener = (pushNotification) =>
-  navigator.serviceWorker.addEventListener("message", ({ data }) =>
-    pushNotification(
-      data.data
-        ? data.data.message
-        : data["firebase-messaging-msg-data"].data.message
-    )
-  );
-// @ts-ignore
-function App({token, notifications}) {
+  navigator.serviceWorker.addEventListener("message", ({ data }) => {
+  const noty = data.firebaseMessaging.payload.notification;
+  console.log(noty);
+  new Notification(noty.title, noty);
+  }
+);
+
+function App({token}) {
   const { pathname } = window.location;
-  const locale = STORAGE.get<string>('langof') || APP_CONFIG.defaultLang;
+  const locale = STORAGE.get('langof') || APP_CONFIG.defaultLang;
   const langReg = /^(([a-z]{2})|([a-z]{2}-[A-Za-z]{2,4}))$/; // tests "/en" OR "/en-US" lang format in url
   const pathLang = (pathname || '').split('/').filter(Boolean).shift() || '';
 
@@ -34,10 +31,6 @@ function App({token, notifications}) {
 
   return (<>
     <div></div>
-    <ul>
-      Notifications List:
-      {notifications.map(renderNotification)}
-    </ul>
     <Router style={{ height: '100%' }} >
       <Home path="/:lang">
         <Splash path="/" />
@@ -53,14 +46,13 @@ function App({token, notifications}) {
 export default compose(
   withState("token", "setToken", ""),
   withState("notifications", "setNotifications", []),
-    // @ts-ignore
+    
   withHandlers({
-    // @ts-ignore
     pushNotification: ({ setNotifications, notifications}) => newNotification =>  setNotifications(notifications.concat(newNotification))
   }),
   lifecycle({
     async componentDidMount() {
-      // @ts-ignore
+      
       const { pushNotification, setToken } = this.props;
 
       messaging
@@ -77,5 +69,5 @@ export default compose(
     }
   })
 )
-// @ts-ignore
+
 (App)
