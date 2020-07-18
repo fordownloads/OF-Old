@@ -1,5 +1,6 @@
 {
   "short_name": "OrangeFox",
+  "gcm_sender_id": "103953800507",
   "name": "OrangeFox",
   "start_url": ".",
   "display": "standalone",
