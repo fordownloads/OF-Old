@@ -4,8 +4,10 @@ import App from './App';
 import { APP_CONFIG } from './app-config';
 import { createMuiTheme, CssBaseline, ThemeProvider } from './components';
 import { DarkTheme } from './themes';
+import { registerServiceWorker } from "./register-sw";
 
 const theme = createMuiTheme(DarkTheme);
+registerServiceWorker();
 
 function RenderApp() {
   document.documentElement.setAttribute('orangefox-version', APP_CONFIG.version);

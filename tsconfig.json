@@ -19,6 +19,7 @@
     "downlevelIteration": true,
     "noEmit": true,
     "jsx": "react"
+    //"noImplicitAny": false 
   },
   "include": [
     "src"
