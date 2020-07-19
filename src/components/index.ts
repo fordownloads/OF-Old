@@ -13,3 +13,4 @@ export * from './React-Material';
 export * from './release';
 export * from './Splash';
 export * from './Wiki';
+export * from './Subscribe';

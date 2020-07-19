@@ -14,6 +14,14 @@
     border-radius: 4px;
 }
 
+.shimmer-button {
+    width: 140px;
+    height: 35px;
+    font-size: 0.8rem;
+    display: block;
+    margin: 0 0 24px 24px;
+}
+
 @keyframes animate {
     0% {
         background: #fff1;

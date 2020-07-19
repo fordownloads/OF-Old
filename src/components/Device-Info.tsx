@@ -13,6 +13,7 @@ import {
     PermIdentityOutlinedIcon, ReportProblemOutlined
 } from './Icons';
 import { LoadShimmer } from './Load-Shimmer';
+import { Subscribe } from './Subscribe';
 
 interface DeviceInfoProps extends RouteComponentProps {
     code?: string;
@@ -53,6 +54,9 @@ const useStyles = makeStyles((theme: Theme) =>
         flexText: {
             display: 'flex',
             alignItems: 'center'
+        },
+        subsButton: {
+            margin: '0 0 24px 24px',
         },
     }),
 );
@@ -227,6 +231,7 @@ const DeviceInfo: React.SFC<DeviceInfoProps> = ({ code }) => {
                     </ListItem>
                 </List>
             </AccordionDetails>
+            <Subscribe topicName={code} className={classes.subsButton} />
         </Accordion>
     );
 }
