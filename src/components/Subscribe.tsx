@@ -4,14 +4,26 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import NotificationsOffIcon from '@material-ui/icons/NotificationsOff';
+import { messaging } from "../init-fcm";
 
 interface IProps {
     topicName: string | undefined;
     className?: string;
 }
+
 interface IState {
     subsState: number;
 }
+
+let tokenStr : string | null = null;
+
+const registerPushListener = () =>
+  navigator.serviceWorker.addEventListener("message", ({ data }) => {
+  const noty = data.firebaseMessaging.payload.notification;
+  console.log(noty);
+  new Notification(noty.title, noty);
+  }
+);
 
 class Subscribe extends React.Component<IProps, IState> {
     constructor(props: IProps) {
@@ -28,17 +40,45 @@ class Subscribe extends React.Component<IProps, IState> {
     componentDidMount() {
         this.setState({ subsState: 0 });
     }
+
     /*
     componentWillUnmount() {
     }
     */
-    subscribe() {
-        alert("Subscribed to " + this.props.topicName);
-        this.setState({ subsState: 2 });
-    };
+
+    subscribe = async (): Promise<void> => {
+        messaging.requestPermission()
+            .catch(function(err) {
+                console.log("Unable to get permission to notify.", err);
+                return null;
+            });
+        if (Notification.permission !== 'granted') {
+            alert("Check your browser notification settings");
+            return;
+        }
+        tokenStr = await messaging.getToken();
+        if (tokenStr === null) {
+            alert("Error while getting token");
+            this.setState({ subsState: 0 });
+        } else {
+            registerPushListener();
+            prompt("Subscribed to " + this.props.topicName + "\nYour token: ", tokenStr);
+            this.setState({ subsState: 2 });
+        }
+    }
+    
     unsubscribe() {
-        this.setState({ subsState: 0 });
-        alert("Unsubscribed from " + this.props.topicName);
+        messaging.getToken().then((currentToken) => {
+            messaging.deleteToken(currentToken).then(() => {
+              console.log('Token deleted.');
+              this.setState({ subsState: 0 });
+              alert("Your token is deleted");
+            }).catch((err) => {
+              console.log('Unable to delete token. ', err);
+            });
+          }).catch((err) => {
+            console.log('Error retrieving Instance ID token. ', err);
+          });
     };
 
     render() {
