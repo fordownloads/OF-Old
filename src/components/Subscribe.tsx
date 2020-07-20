@@ -37,8 +37,13 @@ class Subscribe extends React.Component<IProps, IState> {
         this.unsubscribe = this.unsubscribe.bind(this);
     }
     
-    componentDidMount() {
-        this.setState({ subsState: 0 });
+    async componentDidMount() {
+        this.setState({ subsState: -1 });
+        if (await messaging.getToken() === window.localStorage.getItem('push_last_token') && window.localStorage.getItem('push_is_subscribed') === '1') {
+            this.setState({ subsState: 2 });
+        } else {
+            this.setState({ subsState: 0 });
+        }
     }
 
     /*
@@ -52,8 +57,10 @@ class Subscribe extends React.Component<IProps, IState> {
                 console.log("Unable to get permission to notify.", err);
                 return null;
             });
+        this.setState({ subsState: 1 });
         if (Notification.permission !== 'granted') {
             alert("Check your browser notification settings");
+            this.setState({ subsState: 0 });
             return;
         }
         tokenStr = await messaging.getToken();
@@ -62,8 +69,30 @@ class Subscribe extends React.Component<IProps, IState> {
             this.setState({ subsState: 0 });
         } else {
             registerPushListener();
-            prompt("Subscribed to " + this.props.topicName + "\nYour token: ", tokenStr);
-            this.setState({ subsState: 2 });
+            
+            fetch('https://iid.googleapis.com/iid/v1/'+tokenStr+'/rel/topics/'+this.props.topicName, {
+              method: 'POST',
+              headers: new Headers({
+                'Authorization': 'key=server-key'
+              })
+            }).then(response => {
+              if (response.status < 200 || response.status >= 400) {
+                console.log('Error subscribing to topic: '+response.status + ' - ' + response.text());
+                this.setState({ subsState: 0 });
+                return;
+              }
+              console.log('Subscribed to "'+tokenStr+'"');
+              window.localStorage.setItem('push_is_subscribed', '1');
+              window.localStorage.setItem('push_last_token', tokenStr as string);
+              window.localStorage.setItem('push_topic', this.props.topicName as string);
+  
+              prompt("Subscribed to " + this.props.topicName + "\nYour token: ", tokenStr as string);
+              this.setState({ subsState: 2 });
+            }).catch(error => {
+              console.error(error);
+              this.setState({ subsState: 0 });
+              return;
+            })
         }
     }
     
@@ -72,6 +101,9 @@ class Subscribe extends React.Component<IProps, IState> {
             messaging.deleteToken(currentToken).then(() => {
               console.log('Token deleted.');
               this.setState({ subsState: 0 });
+              window.localStorage.setItem('push_is_subscribed', '0');
+              window.localStorage.setItem('push_last_token', '0');
+              window.localStorage.setItem('push_topic', '0');
               alert("Your token is deleted");
             }).catch((err) => {
               console.log('Unable to delete token. ', err);
@@ -96,6 +128,7 @@ class Subscribe extends React.Component<IProps, IState> {
                 <FormattedMessage
                     id="notifications.subscribe"
                     defaultMessage="Subscribe" />
+                {" to " + this.props.topicName}
             </Button>
             );
             case 1: return (
