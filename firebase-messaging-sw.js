@@ -7,3 +7,15 @@ firebase.initializeApp({
   appId: "1:62815877980:web:7335752aa695d1489c9f99"
 });
 const messaging = firebase.messaging();
+
+/*
+messaging.setBackgroundMessageHandler(function(payload) {
+  const notificationTitle = 'Background Message Title';
+  const notificationOptions = {
+    body: 'Background Message body.',
+    icon: '/firebase-logo.png'
+  };
+
+  return self.registration.showNotification(notificationTitle,
+    notificationOptions);
+});*/
