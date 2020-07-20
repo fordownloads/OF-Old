@@ -53,5 +53,10 @@
     "footer": {
         "poweredBy": "Powered By {hostWebsite}",
         "openSource": "Open-Source Project"
+    },
+    "notifications": {
+        "subscribe": "Subscribe",
+        "unsubscribe": "Unsubscribe",
+        "registration": "Registration..."
     }
 }
