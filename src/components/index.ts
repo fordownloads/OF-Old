@@ -14,3 +14,4 @@ export * from './release';
 export * from './Splash';
 export * from './Wiki';
 export * from './Subscribe';
+export * from './SnackAlert';

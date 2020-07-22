@@ -4,7 +4,8 @@ import Button from '@material-ui/core/Button';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
 import NotificationsOffIcon from '@material-ui/icons/NotificationsOff';
-import { messaging } from "../init-fcm";
+import { messaging, push_server } from "../init-fcm";
+import { SnackAlert } from './SnackAlert';
 
 interface IProps {
     topicName: string | undefined;
@@ -70,11 +71,8 @@ class Subscribe extends React.Component<IProps, IState> {
         } else {
             registerPushListener();
             
-            fetch('https://iid.googleapis.com/iid/v1/'+tokenStr+'/rel/topics/'+this.props.topicName, {
-              method: 'POST',
-              headers: new Headers({
-                'Authorization': 'key=server-key'
-              })
+            fetch(push_server+'/?token='+tokenStr+'&topic='+this.props.topicName, {
+              method: 'POST'
             }).then(response => {
               if (response.status < 200 || response.status >= 400) {
                 console.log('Error subscribing to topic: '+response.status + ' - ' + response.text());
