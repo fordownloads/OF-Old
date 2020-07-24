@@ -2,28 +2,49 @@ import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
 
-interface SAProps {
+interface IProps {
     icon: any;
     message: string;
     showAlert: boolean;
     toggleAlert?: () => void;
 }
+interface IState {
+    icon: any;
+    message: string;
+    show: boolean;
+}
 
-const SnackAlert: React.SFC<SAProps> = ({ showAlert, icon, message, toggleAlert }) => {
-  const [open, setOpen] = React.useState(showAlert);
+class SnackAlert extends React.Component<IProps, IState> {
+  constructor(props: IProps, context: any){
+      super(props, context);
+      this.handleShow = this.handleShow.bind(this);
+      this.handleClose = this.handleClose.bind(this);
+      this.state = {
+          show: false,
+          icon: "error",
+          message: "error"
+      }
+  }
 
-  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+  handleShow(pIcon: any, pMessage: string) {
+    this.setState({ show: true, icon: pIcon, message: pMessage })
+  }
+
+  handleClose(event?: React.SyntheticEvent, reason?: string){
     if (reason !== 'clickaway') {
-        toggleAlert && toggleAlert();
-        setOpen(false);
+      this.setState({ show: false });
     }
-  };
+  }
 
-  return (
-      <Snackbar open={open || showAlert} autoHideDuration={6000} onClose={handleClose}>
-        <Alert elevation={6} variant="filled" onClose={handleClose} severity={icon}>{message}</Alert>
-      </Snackbar>
-  );
+  render(){
+    return (
+        <Snackbar open={this.state.show} autoHideDuration={4000} onClose={this.handleClose}>
+          <Alert style={{minWidth: '256px'}} elevation={6} variant="filled" severity={this.state.icon}>
+            {this.state.message}
+          </Alert>
+        </Snackbar>
+    );
+  }
 }
 
 export { SnackAlert };

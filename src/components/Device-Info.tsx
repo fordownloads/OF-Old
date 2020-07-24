@@ -13,7 +13,7 @@ import {
     PermIdentityOutlinedIcon, ReportProblemOutlined
 } from './Icons';
 import { LoadShimmer } from './Load-Shimmer';
-import { Subscribe } from './Subscribe';
+import Subscribe from './Subscribe';
 
 interface DeviceInfoProps extends RouteComponentProps {
     code?: string;

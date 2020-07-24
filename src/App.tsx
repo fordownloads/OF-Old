@@ -6,6 +6,24 @@ import { STORAGE } from './core';
 import { Device, Build, Home, NotFound } from './pages';
 import './styles/style.scss';
 
+let isPushRegistered = false;
+
+const registerPushListener = () => {
+  if (navigator.serviceWorker === undefined || navigator.serviceWorker === null) {
+    console.log("Service worker not found");
+  } else {
+    navigator.serviceWorker.addEventListener("message", ({ data }) => {
+        const noty = data.firebaseMessaging.payload.notification;
+        console.log("FCM recieved notification:");
+        console.log(noty);
+        new Notification(noty.title, noty);
+      }
+    );
+    isPushRegistered = true;
+    console.log("Push listener registered");
+  }
+}
+
 function App() {
   const { pathname } = window.location;
   const locale = STORAGE.get('langof') || APP_CONFIG.defaultLang;
@@ -16,6 +34,8 @@ function App() {
     // re-direct if path seems valid and localization is not present
     navigate(`/${locale}${pathname}`);
   }
+
+  isPushRegistered || registerPushListener();
 
   return (<>
     <div></div>

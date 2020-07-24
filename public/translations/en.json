@@ -54,9 +54,20 @@
         "poweredBy": "Powered By {hostWebsite}",
         "openSource": "Open-Source Project"
     },
-    "notifications": {
-        "subscribe": "Subscribe",
-        "unsubscribe": "Unsubscribe",
-        "registration": "Registration..."
+    "push": {
+        "subscribe": "Subscribe to {device} updates",
+        "unsubscribe": "Unsubscribe from {device}",
+        "registration": "Please wait...",
+        "alerts": {
+            "deleted": "You unsubscribed from all notifications",
+            "unsubscribed": "You unsubscribed from {device} updates",
+            "subscribed": "You subscribed to {device} updates",
+            "check": "Allow notifications and try again",
+
+            "e_token": "Unable to get your ID",
+            "e_server": "Server returned error",
+            "e_sub": "Can't subscribe to notifications",
+            "e_unsub": "Can't unsubscribe from notifications"
+        }
     }
 }

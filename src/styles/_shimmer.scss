@@ -16,8 +16,11 @@
 
 .shimmer-button {
     width: 140px;
+}
+
+.placeholder-button {
+    min-width: 140px;
     height: 35px;
-    font-size: 0.8rem;
     display: block;
     margin: 0 0 24px 24px;
 }
