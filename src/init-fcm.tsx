@@ -1,7 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/messaging";
 
-const push_server = "http://192.168.1.141:3001";
+const push_server = "https://push.orangefox.download";
 let messaging = null;
 
 if (firebase.messaging.isSupported()) {
