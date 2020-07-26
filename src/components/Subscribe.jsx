@@ -8,6 +8,8 @@ import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined'
 import IconButton from '@material-ui/core/IconButton';
 import { messaging, push_server } from "../init-fcm";
 import { SnackAlert } from './SnackAlert';
+import { Menu } from './Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 /* all notifications logic by fordownloads */
 
@@ -16,36 +18,18 @@ let tokenStr = null, prevTopic = null;
 const pushSupported = ("Notification" in window) && messaging !== null;
 
 class Subscribe extends React.Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
 
         this.state = {
             subsState: -1
         };
 
         this.intl = this.props.intl;
-        this.storage = this.storage.bind(this);
         this.subscribe = this.subscribe.bind(this);
         this.unsubscribe = this.unsubscribe.bind(this);
         this.deleteToken = this.deleteToken.bind(this);
-        this.renderButton = this.renderButton.bind(this);
-        this.showAlert = this.showAlert.bind(this);
     }
-    /*
-    static getDerivedStateFromProps(props, state) {
-      if (prevTopic !== props.topicName) {
-          prevTopic = props.topicName;
-          console.log('device: '+prevTopic);
-          console.log(state);
-          state = {subsState: -1};
-      }
-      return null
-    }
-    componentDidUpdate(previousProps, previousState) {
-        if (previousProps.data !== this.props.data) {
-            this.setState({})
-        }
-    }*/
 
     static getDerivedStateFromProps(props, state) {
         if (prevTopic !== props.topicName) {
@@ -64,25 +48,17 @@ class Subscribe extends React.Component {
 
     shouldComponentUpdate = () => pushSupported;
 
-    /*snackRef = ({handleShow}) => this.handleShow = handleShow;*/
-    /* crutch to make everything work; error in upper code caused by getDerivedStateFromProps */
     snackRef = ({handleShow}) => {
-        if (handleShow !== null && handleShow !== undefined) 
-            this.handleShow = handleShow;
+        if (handleShow) this.handleShow = handleShow;
     };
+
+    menuRef = ({handleShow, handleClose}) => {
+        if (!(handleShow && handleClose)) return;
+        this.menuShow = handleShow;
+        this.menuClose = handleClose;
+    };
+
     showAlert = (icon, msg, params = {}) => this.handleShow(icon, this.intl.formatMessage(msg, params));
-/*
-    componentDidMount() {
-        try {
-            const topics = JSON.parse(window.localStorage.getItem('push_topics'));
-            this.setState({ subsState:
-                (topics !== null && topics !== undefined && topics.hasOwnProperty(this.props.topicName) === true) ?
-                2 : 0 });
-        } catch {
-            this.setState({ subsState: 0 });
-            return;
-        }
-    }*/
 
     storage(tok, top) {
         window.localStorage.setItem('push_last_token', tok);
@@ -176,6 +152,8 @@ class Subscribe extends React.Component {
             console.log(err);
             this.showAlert("error", {id: 'push.alerts.e_token'});
           });
+          
+        this.menuClose();
     }
 
     renderButton(){
@@ -223,11 +201,19 @@ class Subscribe extends React.Component {
             return (<>
                 <div className="placeholder-button">
                     {this.renderButton()}
-                    <IconButton color="secondary" aria-label="Delete token" size='small' style={{ marginLeft: '16px' }} onClick={this.deleteToken}>
+                    <IconButton color="secondary" aria-label="Delete token" style={{ marginLeft: '8px' }} onClick={this.menuShow}>
                         <DeleteOutlineOutlinedIcon fontSize='small' />
                     </IconButton>
                 </div>
                 <SnackAlert ref={this.snackRef}/>
+                <Menu ref={this.menuRef}>
+                    <MenuItem onClick={this.deleteToken}>
+                        <DeleteOutlineOutlinedIcon fontSize='small' className="iconMenu" />
+                        <FormattedMessage
+                                id="push.deleteConfirm"
+                                defaultMessage="Unsubscribe from all updates" />
+                    </MenuItem>
+                </Menu>
             </>);
         return(null);
     }

@@ -59,6 +59,7 @@
         "unsubscribe": "Unsubscribe from {device}",
         "registration": "Please wait...",
         "alerts": {
+            "deleteConfirm": "Unsubscribe from all updates",
             "deleted": "You unsubscribed from all notifications",
             "unsubscribed": "You unsubscribed from {device} updates",
             "subscribed": "You subscribed to {device} updates",

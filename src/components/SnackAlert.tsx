@@ -1,21 +1,18 @@
 import React from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
+import { isMobile } from '../utils';
+import Slide from '@material-ui/core/Slide';
+import Grow from '@material-ui/core/Grow';
 
-interface IProps {
-    icon: any;
-    message: string;
-    showAlert: boolean;
-    toggleAlert?: () => void;
-}
 interface IState {
     icon: any;
     message: string;
     show: boolean;
 }
 
-class SnackAlert extends React.Component<IProps, IState> {
-  constructor(props: IProps, context: any){
+class SnackAlert extends React.Component<null, IState> {
+  constructor(props: null, context: any){
       super(props, context);
       this.handleShow = this.handleShow.bind(this);
       this.handleClose = this.handleClose.bind(this);
@@ -31,17 +28,20 @@ class SnackAlert extends React.Component<IProps, IState> {
   }
 
   handleClose(event?: React.SyntheticEvent, reason?: string){
-    if (reason !== 'clickaway') {
+    if (reason !== 'clickaway')
       this.setState({ show: false });
-    }
   }
 
   render(){
     return (
-        <Snackbar open={this.state.show} autoHideDuration={4000} onClose={this.handleClose}>
-          <Alert style={{minWidth: '256px'}} elevation={6} variant="filled" severity={this.state.icon}>
-            {this.state.message}
+        <Snackbar open={this.state.show} autoHideDuration={4000} onClose={this.handleClose}
+          TransitionComponent={isMobile ? Slide : Grow} key={this.state.message}>
+
+          <Alert style={isMobile ? {width: '100vw', margin: '8px'} : {minWidth: '256px', margin: '24px'}} 
+                 elevation={16} variant="filled" severity={this.state.icon}>
+                 {this.state.message}
           </Alert>
+          
         </Snackbar>
     );
   }
