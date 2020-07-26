@@ -16,6 +16,10 @@ body {
     user-select: none;
 }
 
+.selectable {
+    user-select: text;
+}
+
 @media screen and (min-width: 600px) {
     html {
         font-size: 1.15em !important;

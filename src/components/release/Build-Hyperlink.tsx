@@ -20,8 +20,8 @@ export const BuildHyperLink = (release: IRelease) => {
 
     return (
         <>
-            <IconButton onClick={onCopyClick} color="secondary" >
-                <HyperLink fontSize="small" style={{color: "white"}} />
+            <IconButton onClick={onCopyClick} color="primary" style={{color: "white", margin: "-12px 0"}} >
+                <HyperLink fontSize="small" />
             </IconButton>
             <Modal
                 showModal={modal}
@@ -37,7 +37,7 @@ export const BuildHyperLink = (release: IRelease) => {
                         id="release.copy"
                         defaultMessage="Link copied to clipboard!" />
                     <br />
-                    <a className="link orange" href={url} target="_blank" rel="noopener nofollow noreferrer" >
+                    <a className="link orange selectable" href={url} target="_blank" rel="noopener nofollow noreferrer" >
                         {url}
                     </a>
                 </DialogContent>

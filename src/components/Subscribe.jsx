@@ -158,7 +158,7 @@ class Subscribe extends React.Component {
     renderButton(){
         switch (this.state.subsState) {
             case 0: return (
-            <Button variant="contained"
+            <Button variant="contained" disableElevation
                     color="secondary"
                     onClick={this.subscribe}
                     startIcon={<NotificationsActiveIcon />} >

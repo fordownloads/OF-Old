@@ -133,8 +133,6 @@ const Release: React.SFC<ReleaseProps> = props => {
                         />
                     </ListItem>
 
-                    <Divider />
-
                     <MaterialList
                         component="div"
                         className={classes.nestedList} >

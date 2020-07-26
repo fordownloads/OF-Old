@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Button, CircularProgress, DialogContent,
-    DialogTitle, ListItem, ListItemIcon, ListItemText
+    DialogTitle
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
@@ -40,33 +40,15 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
     }
 
     return release ? (<>
-
-        <ListItem
-            button
-            onClick={handleModal}
-        >
-            <ListItemIcon>
-                <GetAppIconOutlined
-                    fontSize="small"
-                    className={classes.icon}
-                />
-            </ListItemIcon>
-            {
-                !showLoader && (<>
-                    <ListItemText primary={<Title />} />
-                </>)
-            }
-
-            {/* Loading Placeholder */}
-            {
-                showLoader && (<>
-                    <ListItemText
-                        primary={<LoadShimmer />}
-                        secondary={<LoadShimmer />}
-                    />
-                </>)
-            }
-        </ListItem>
+        <Button variant="contained" disableElevation
+                color="secondary"
+                onClick={handleModal}
+                className={classes.outlinedButton}
+                startIcon={<GetAppIconOutlined/>} >
+                    
+                {!showLoader && (<Title />)}
+                {showLoader  && (<LoadShimmer />)}
+        </Button>
 
         <Modal
             showModal={showModal}
@@ -98,7 +80,7 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
                     tmoDirectLink && (<>
                         <Button
                             color="secondary"
-                            variant="contained"
+                            variant="contained" disableElevation
                         >
                             <OpenOutside
                                 className="link no-hover"
@@ -118,7 +100,7 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
                                 &nbsp;
                                 <Button
                                     color="secondary"
-                                    variant="contained"
+                                    variant="contained" disableElevation
                                 >
                                     <OpenOutside
                                         href={release?.sf?.url}

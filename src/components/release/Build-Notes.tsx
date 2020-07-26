@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-    DialogContent, DialogTitle, ListItem,
-    ListItemIcon, ListItemText
+    DialogContent, DialogTitle, Button
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
@@ -28,33 +27,15 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
     );
 
     return (<>
-
-        <ListItem
-            button
-            onClick={handleModal}
-        >
-            <ListItemIcon>
-                <SpeakerNotesOutlined
-                    fontSize="small"
-                    className={classes.icon}
-                />
-            </ListItemIcon>
-            {
-                !showLoader && (<>
-                    <ListItemText primary={<Title />} />
-                </>)
-            }
-
-            {/* Loading Placeholder */}
-            {
-                showLoader && (<>
-                    <ListItemText
-                        primary={<LoadShimmer />}
-                        secondary={<LoadShimmer />}
-                    />
-                </>)
-            }
-        </ListItem>
+        <Button variant="outlined"
+                color="secondary"
+                onClick={handleModal}
+                className={classes.outlinedButton}
+                startIcon={<SpeakerNotesOutlined/>} >
+                    
+                {!showLoader && (<Title />)}
+                {showLoader  && (<LoadShimmer />)}
+        </Button>
 
         <Modal
             showModal={showModal}
@@ -63,7 +44,7 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
             <DialogTitle>
                 <Title />
             </DialogTitle>
-            <DialogContent dividers>
+            <DialogContent dividers className="selectable">
                 <SplitMsg msg={release.notes} />
             </DialogContent>
         </Modal>

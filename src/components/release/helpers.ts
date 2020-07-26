@@ -29,17 +29,16 @@ export const useStylesRelease = makeStyles((theme: Theme) =>
                 flexWrap: 'wrap'
             },
         },
-        modal: {
-            backgroundColor: theme.palette.primary.light,
-            boxShadow: theme.shadows[5],
-            padding: theme.spacing(3, 4),
-            border: 'none',
-            borderRadius: '8px',
-            outline: 'none !important',
-            userSelect: 'text'
-        },
         bug: {
-            color: '#ff5e5e'
+            color: '#ff5e5e',
+            borderColor: '#ff5e5e66',
+            backgroundColor: '#ff5e5e11',
+            '&:hover': {
+                borderColor: '#ff5e5e',
+            },
+        },
+        outlinedButton: {
+            margin: '8px 0 8px 16px'
         },
         summary: {
             width: '100%',

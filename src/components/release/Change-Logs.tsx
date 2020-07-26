@@ -1,6 +1,5 @@
 import {
-    DialogContent, DialogTitle, ListItem,
-    ListItemIcon, ListItemText
+    DialogContent, DialogTitle, Button
 } from '@material-ui/core';
 import { RouteComponentProps } from '@reach/router';
 import React from 'react';
@@ -28,31 +27,15 @@ const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
     );
 
     return (<>
-        <ListItem
-            button
-            onClick={handleModal}
-        >
-            <ListItemIcon>
-                <DescriptionOutlined
-                    fontSize="small"
-                    className={classes.icon}
-                />
-            </ListItemIcon>
-            {
-                !showLoader && (<ListItemText primary={<Title />} />)
-            }
-
-            {/* Loading Placeholder */}
-            {
-                showLoader && (<>
-                    <ListItemText
-                        primary={<LoadShimmer />}
-                        secondary={<LoadShimmer />}
-                    />
-                </>)
-            }
-
-        </ListItem>
+        <Button variant="outlined"
+                color="secondary"
+                onClick={handleModal}
+                className={classes.outlinedButton}
+                startIcon={<DescriptionOutlined/>} >
+                    
+                {!showLoader && (<Title />)}
+                {showLoader  && (<LoadShimmer />)}
+        </Button>
 
         <Modal
             showModal={showModal}
@@ -61,7 +44,7 @@ const ChangeLogs: React.SFC<ChangeLogsProps> = ({ release, showLoader }) => {
             <DialogTitle>
                 <Title />
             </DialogTitle>
-            <DialogContent dividers>
+            <DialogContent dividers className="selectable">
                 <SplitMsg msg={release.changelog} />
             </DialogContent>
         </Modal>
