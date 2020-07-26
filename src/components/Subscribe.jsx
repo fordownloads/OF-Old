@@ -48,15 +48,14 @@ class Subscribe extends React.Component {
 
     shouldComponentUpdate = () => pushSupported;
 
-    snackRef = ({handleShow}) => {
-        if (handleShow) this.handleShow = handleShow;
+    snackRef = (obj) => this.handleShow = obj && obj.handleShow;
+
+    menuRef = (obj) => { 
+        this.menuShow =  obj && obj.handleShow;
+        this.menuClose =  obj && obj.handleClose;
     };
 
-    menuRef = ({handleShow, handleClose}) => {
-        if (!(handleShow && handleClose)) return;
-        this.menuShow = handleShow;
-        this.menuClose = handleClose;
-    };
+    componentDidMount = () => prevTopic = null;
 
     showAlert = (icon, msg, params = {}) => this.handleShow(icon, this.intl.formatMessage(msg, params));
 
@@ -192,7 +191,7 @@ class Subscribe extends React.Component {
                             values={{ device: this.props.topicName }}  />
                 </Button>
             );
-            default: return (<span className="shimmer shimmer-button placeholder-button"/>);
+            default: return (<span className="shimmer shimmer-button"/>);
         }
     }
     
@@ -201,9 +200,11 @@ class Subscribe extends React.Component {
             return (<>
                 <div className="placeholder-button">
                     {this.renderButton()}
-                    <IconButton color="secondary" aria-label="Delete token" style={{ marginLeft: '8px' }} onClick={this.menuShow}>
-                        <DeleteOutlineOutlinedIcon fontSize='small' />
-                    </IconButton>
+                    { this.state.subsState !== -1 && (
+                        <IconButton color="secondary" aria-label="Delete token" style={{ marginLeft: '8px' }} onClick={this.menuShow}>
+                            <DeleteOutlineOutlinedIcon fontSize='small' />
+                        </IconButton>
+                    ) }
                 </div>
                 <SnackAlert ref={this.snackRef}/>
                 <Menu ref={this.menuRef}>
