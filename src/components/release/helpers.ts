@@ -40,6 +40,9 @@ export const useStylesRelease = makeStyles((theme: Theme) =>
         outlinedButton: {
             margin: '8px 0 8px 16px'
         },
+        downloadButton: {
+            margin: '8px 16px 8px 0'
+        },
         summary: {
             width: '100%',
             display: 'flex',

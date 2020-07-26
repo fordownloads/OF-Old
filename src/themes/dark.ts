@@ -46,7 +46,7 @@ export const DarkTheme: ThemeOptions = {
             light: '#eb7813',
             main: '#ed7002',
             dark: '#d36301',
-            contrastText: '#fff'
+            contrastText: '#202124'
         },
         error: {
             light: '#e57373',

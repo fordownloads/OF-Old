@@ -4,7 +4,6 @@ import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { IRelease } from '../../models';
 import { BugReportIcon } from '../Icons';
-import { LoadShimmer } from '../Load-Shimmer';
 import { Modal } from '../Modal';
 import { useStylesRelease } from './helpers';
 import { SplitMsg } from './Split-Msg';
@@ -25,15 +24,15 @@ const Bugs: React.SFC<BugsProps> = ({ release, showLoader }) => {
     );
 
     return release?.bugs ? (<>
-        <Button variant="outlined"
+        {showLoader ? ( <span className={"shimmer-button " + classes.outlinedButton}/> ) : (
+            <Button variant="outlined"
                 color="secondary"
                 onClick={handleModal}
                 className={classes.outlinedButton + ' ' + classes.bug}
                 startIcon={<BugReportIcon/>} >
-
-                {!showLoader && (<Title />)}
-                {showLoader  && (<LoadShimmer />)}
-        </Button>
+                <Title />
+            </Button>
+        ) }
 
         <Modal
             showModal={showModal}

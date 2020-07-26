@@ -8,7 +8,7 @@ import { FormattedMessage } from 'react-intl';
 import { Modal, PoweredBy } from '..';
 import { IRelease } from '../../models';
 import { Donations } from '../Donation';
-import { GetAppIconOutlined } from '../Icons';
+import { GetAppIconOutlined, LaunchIcon } from '../Icons';
 import { LoadShimmer } from '../Load-Shimmer';
 import { OpenOutside } from '../Open-Outside';
 import { useStylesRelease } from './helpers';
@@ -40,15 +40,15 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
     }
 
     return release ? (<>
-        <Button variant="contained" disableElevation
+        {showLoader ? ( <span className={"shimmer-button " + classes.outlinedButton}/> ) : (
+            <Button variant="contained" disableElevation
                 color="secondary"
                 onClick={handleModal}
                 className={classes.outlinedButton}
                 startIcon={<GetAppIconOutlined/>} >
-                    
-                {!showLoader && (<Title />)}
-                {showLoader  && (<LoadShimmer />)}
-        </Button>
+                <Title />
+            </Button>
+        ) }
 
         <Modal
             showModal={showModal}
@@ -63,16 +63,11 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
                         <Button
                             variant="outlined"
                             color="secondary"
-                        >
-                            <CircularProgress
-                                size="18px"
-                                color="secondary"
-                            />
-                            &nbsp;&nbsp;&nbsp;&nbsp;
+                            className={classes.downloadButton}
+                            startIcon={<CircularProgress size="18px" color="secondary" />} >
                             <FormattedMessage
                                 id="modal.fetchLink"
-                                defaultMessage="Fetching Links"
-                            />
+                                defaultMessage="Fetching Links" />
                         </Button>
                     )
                 }
@@ -81,30 +76,28 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
                         <Button
                             color="secondary"
                             variant="contained" disableElevation
-                        >
+                            className={classes.downloadButton}
+                            startIcon={<GetAppIconOutlined />} >
                             <OpenOutside
-                                className="link no-hover"
-                                href={release.direct_url || release.url}
-                            >
+                                className="link no-hover inheritColor"
+                                href={release.direct_url || release.url} >
                                 <FormattedMessage
                                     id="modal.directLink"
                                     defaultMessage="Direct Link"
                                 />
                             </OpenOutside>
-
                         </Button>
 
                         {
                             release?.sf?.url && (<>
-                                &nbsp;
-                                &nbsp;
                                 <Button
                                     color="secondary"
-                                    variant="contained" disableElevation
-                                >
+                                    variant="outlined" disableElevation
+                                    className={classes.downloadButton}
+                                    startIcon={<LaunchIcon />} >
                                     <OpenOutside
                                         href={release?.sf?.url}
-                                        className="link no-hover"
+                                        className="link no-hover inheritColor"
                                     >
                                         <FormattedMessage
                                             id="modal.mirrorLink"
@@ -117,7 +110,6 @@ const Downloads: React.SFC<DownloadsProps> = ({ release, showLoader }) => {
                         }
                     </>)
                 }
-                <br />
                 <br />
                 <div className="links-in-dwld">
                     <PoweredBy />

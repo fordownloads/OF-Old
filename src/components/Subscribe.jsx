@@ -191,7 +191,7 @@ class Subscribe extends React.Component {
                             values={{ device: this.props.topicName }}  />
                 </Button>
             );
-            default: return (<span className="shimmer shimmer-button"/>);
+            default: return (<span className="shimmer-button"/>);
         }
     }
     

@@ -15,6 +15,7 @@
 }
 
 .shimmer-button {
+    @extend .shimmer;
     width: 140px;
     height: 36px;
     display: block;

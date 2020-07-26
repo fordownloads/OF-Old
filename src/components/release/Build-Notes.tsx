@@ -27,15 +27,15 @@ const BuildNotes: React.SFC<BuildNotesProps> = ({ release, showLoader }) => {
     );
 
     return (<>
-        <Button variant="outlined"
+        {showLoader ? ( <span className={"shimmer-button " + classes.outlinedButton}/> ) : (
+            <Button variant="outlined"
                 color="secondary"
                 onClick={handleModal}
                 className={classes.outlinedButton}
                 startIcon={<SpeakerNotesOutlined/>} >
-                    
-                {!showLoader && (<Title />)}
-                {showLoader  && (<LoadShimmer />)}
-        </Button>
+                <Title />
+            </Button>
+        ) }
 
         <Modal
             showModal={showModal}

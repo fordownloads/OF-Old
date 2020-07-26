@@ -18,11 +18,12 @@ import SearchIcon from '@material-ui/icons/Search';
 import SpeakerNotesOutlined from '@material-ui/icons/SpeakerNotesOutlined';
 import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
 import VerifiedUserOutlined from '@material-ui/icons/VerifiedUserOutlined';
-import  IconButton from '@material-ui/core/IconButton';
+import IconButton from '@material-ui/core/IconButton';
+import LaunchIcon from '@material-ui/icons/Launch';
 
 export {
     ExpandLess, ExpandMore, HyperLink, BookOutlinedIcon, MenuIcon, SpeakerNotesOutlined, PermDeviceInformationOutlinedIcon,
     SearchIcon, LabelImportantOutlinedIcon, ArchiveOutlined, SdCardOutlinedIcon, VerifiedUserOutlined,
     GetAppIconOutlined, DescriptionOutlined, BugReportIcon, PermIdentityOutlinedIcon, StarBorderOutlinedIcon,
-    ReportProblemOutlined, ClearOutlinedIcon, MonetizationOnOutlinedIcon, IconButton
+    ReportProblemOutlined, ClearOutlinedIcon, MonetizationOnOutlinedIcon, IconButton, LaunchIcon
 };
