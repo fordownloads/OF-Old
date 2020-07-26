@@ -1,33 +1,38 @@
   $card-corner: 8px;
 
-  .MuiExpansionPanel-root.Mui-expanded {
+  .MuiAccordion-root.Mui-expanded {
     margin: 8px 0 !important;
   }
-  .MuiExpansionPanel-root.Mui-expanded:first-child {
+  .MuiAccordion-root.Mui-expanded:first-child {
     margin: 0 0 8px !important;
   }
-  .MuiExpansionPanel-root.Mui-expanded:last-child {
+  .MuiAccordion-root.Mui-expanded:last-child {
     margin: 8px 0 0 !important;
   }
-  .MuiExpansionPanelSummary-root {
+  .MuiAccordionSummary-root {
     padding: 0px 18px !important;
   }
-  .MuiExpansionPanelSummary-content {
+  .MuiAccordionSummary-content {
     margin: 12px 0 !important;
   }
-  .MuiExpansionPanelSummary-content.Mui-expanded {
+  .MuiAccordionSummary-content.Mui-expanded {
     margin: 0 !important;
   }
   
-  .MuiExpansionPanel-rounded:first-child {
+  .MuiAccordion-rounded:first-child {
     border-top-left-radius: $card-corner !important;
     border-top-right-radius: $card-corner !important;
   }
-  .MuiExpansionPanel-rounded:last-child {
+  .MuiAccordion-rounded:last-child {
     border-bottom-left-radius: $card-corner !important;
     border-bottom-right-radius: $card-corner !important;
   }
 
-  .MuiExpansionPanelSummary-root.Mui-expanded {
+  .MuiAccordionSummary-root.Mui-expanded {
     min-height: 36px !important;
   }
+
+  .MuiAccordionDetails-root > .MuiList-padding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
