@@ -9,7 +9,6 @@ import { Modal, PoweredBy } from '..';
 import { IRelease } from '../../models';
 import { Donations } from '../Donation';
 import { GetAppIconOutlined, LaunchIcon } from '../Icons';
-import { LoadShimmer } from '../Load-Shimmer';
 import { OpenOutside } from '../Open-Outside';
 import { useStylesRelease } from './helpers';
 

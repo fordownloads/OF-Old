@@ -53,8 +53,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
     headerContent: {
         width: '100%',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
     },
     headerContentRight: {
         display: 'flex',
@@ -67,7 +65,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
         lineHeight: '1rem',
     },
     recoverySmall: {
-        fontFamily: 'Euclid',
         fontWeight: 400,
         fontSize: '.8rem',
     },
@@ -95,15 +92,24 @@ export const useStyles = makeStyles((theme: Theme) => ({
         padding: theme.spacing(1)
     },
     formControl: {
-        maxWidth: 80,
+        minWidth: 64,
         marginRight: '-8px',
+        [theme.breakpoints.up('sm')]: {
+            marginRight: '-16px',
+        },
         marginLeft: theme.spacing(3),
-        width: 64
+        outline: 'none'
     },
     listItem: {
         borderLeft: '3px solid transparent'
     },
     listItemSelected: {
         borderLeft: '3px solid var(--orange-1)'
+    },
+    selectIcon: {
+        fontSize: '20px',
+        marginTop: '2px',
+        color: 'white',
+        transition: 'all .2s ease'
     }
 }));

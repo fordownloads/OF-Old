@@ -1,6 +1,5 @@
 import React from 'react';
-import { IconButton, OpenOutside } from '.';
-import { isMobile } from '../utils';
+import { IconButton, OpenOutside, Hidden, Button } from '.';
 import { BookOutlinedIcon } from './Icons';
 
 export interface WikiProps {
@@ -14,14 +13,21 @@ const Wiki: React.SFC<WikiProps> = ({ className }) => {
             className={className}
             href="https://wiki.orangefox.tech"
         >
-            <IconButton
-                edge="end"
-                color="inherit"
-                aria-label="Open Wiki link"
-            >
-                <BookOutlinedIcon />
-            </IconButton>
-            {!isMobile && 'Wiki'}
+            <Hidden smUp implementation="css">
+                <IconButton
+                    color="inherit"
+                    edge="end"
+                    aria-label="Open Wiki link" >
+                    <BookOutlinedIcon />
+                </IconButton>
+            </Hidden>
+            <Hidden xsDown implementation="css">
+                <Button 
+                    color="primary" className="wikiButton"
+                    startIcon={<BookOutlinedIcon className="bigIcon"/>} >
+                    Wiki
+                </Button>
+            </Hidden>
         </OpenOutside>
     </>);
 }

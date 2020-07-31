@@ -6,7 +6,6 @@ import { RouteComponentProps } from '@reach/router';
 import { FormattedMessage } from 'react-intl';
 import { IRelease } from '../../models';
 import { SpeakerNotesOutlined } from '../Icons';
-import { LoadShimmer } from '../Load-Shimmer';
 import { Modal } from '../Modal';
 import { useStylesRelease } from './helpers';
 import { SplitMsg } from './Split-Msg';

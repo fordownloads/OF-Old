@@ -1,7 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { IconButton, OpenOutside } from '.';
-import { isMobile } from '../utils';
+import { IconButton, OpenOutside, Hidden, Button } from '.';
 import { MonetizationOnOutlinedIcon } from './Icons';
 
 export interface DonationsProps {
@@ -15,22 +14,23 @@ const Donations: React.SFC<DonationsProps> = ({ className }) => {
             className={className}
             href="https://opencollective.com/orangefox"
         >
-            <IconButton
-                edge="end"
-                color="inherit"
-                aria-label="Open Donations link"
-            >
-                <MonetizationOnOutlinedIcon />
-            </IconButton>
-
-            {!isMobile && (
-                <span style={{ marginLeft: '3px' }}>
+            <Hidden smUp implementation="css">
+                <IconButton
+                    color="inherit"
+                    aria-label="Open Donations link" >
+                    <MonetizationOnOutlinedIcon />
+                </IconButton>
+            </Hidden>
+            <Hidden xsDown implementation="css">
+                <Button 
+                    color="primary" className="whiteColor"
+                    startIcon={<MonetizationOnOutlinedIcon className="bigIcon"/>} >
                     <FormattedMessage
                         id="mainPage.donation"
                         defaultMessage="Donations"
                     />
-                </span>
-            )}
+                </Button>
+            </Hidden>
         </OpenOutside>
     </>);
 }

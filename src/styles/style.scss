@@ -120,3 +120,16 @@ ul.no-list-style {
     margin-right: 12px;
     margin-left: -4px;
 }
+
+.bigIcon {
+    font-size: 1.5rem !important
+}
+
+.whiteColor {
+    color: white !important
+}
+
+.wikiButton {
+    @extend .whiteColor;
+    margin: 0 -12px 0 8px !important;
+}
